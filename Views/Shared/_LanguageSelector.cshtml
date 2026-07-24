@@ -1,0 +1,84 @@
+﻿@using System.Globalization
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
+@{
+    string currentCulture =
+        CultureInfo.CurrentUICulture
+            .TwoLetterISOLanguageName;
+
+    string returnUrl =
+        $"{Context.Request.Path}" +
+        $"{Context.Request.QueryString}";
+}
+
+<div class="dropdown">
+    <button class="btn btn-outline-secondary
+        dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+
+        @if (currentCulture == "ar")
+        {
+            <span>العربية</span>
+        }
+        else
+        {
+            <span>English</span>
+        }
+    </button>
+
+    <ul class="dropdown-menu
+        dropdown-menu-end">
+
+        <li>
+            <form asp-area=""
+                  asp-controller="Language"
+                  asp-action="SetLanguage"
+                  method="post">
+
+                <input type="hidden"
+                       name="culture"
+                       value="en" />
+
+                <input type="hidden"
+                       name="returnUrl"
+                       value="@returnUrl" />
+
+                <button type="submit"
+                        class="dropdown-item
+                    @(currentCulture == "en"
+                        ? "active"
+                        : string.Empty)">
+                    English
+                </button>
+            </form>
+        </li>
+
+        <li>
+            <form asp-area=""
+                  asp-controller="Language"
+                  asp-action="SetLanguage"
+                  method="post">
+
+                <input type="hidden"
+                       name="culture"
+                       value="ar" />
+
+                <input type="hidden"
+                       name="returnUrl"
+                       value="@returnUrl" />
+
+                <button type="submit"
+                        class="dropdown-item
+                    @(currentCulture == "ar"
+                        ? "active"
+                        : string.Empty)">
+                    العربية
+                </button>
+            </form>
+        </li>
+
+    </ul>
+</div>

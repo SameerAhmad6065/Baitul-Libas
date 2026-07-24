@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "About Us";
+}
+
+<div class="about-hero reveal">
+    <svg class="star-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 1 L15 8 L22 9 L17 14 L18.5 21 L12 17.5 L5.5 21 L7 14 L2 9 L9 8 Z" />
+    </svg>
+    <p class="eyebrow">Our Story</p>
+    <h1>A house built on the <span class="gold-text">kandoora</span>.</h1>
+    <p>Bait Al Libas began as a single tailoring counter and grew into a house that dresses generations of the same families — still measured by hand, still cut one thobe at a time.</p>
+</div>
+
+<svg class="arch-divider" viewBox="0 0 1200 64" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,0 C 300,64 900,64 1200,0" />
+</svg>
+
+<section class="section reveal">
+    <div class="about-grid">
+        <div class="about-image corner-frame">
+            <img src="~/images/a.png" alt="Tailor fitting a kandoora" />
+        </div>
+        <div class="about-glass">
+            <p class="eyebrow">Since day one</p>
+            <h3>Precision over volume</h3>
+            <p>
+                Every kandoora that leaves our floor has passed through the hands of a tailor who
+                knows your name. We keep our production small on purpose — a fitting isn't
+                finished until the collar sits exactly where it should.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section reveal">
+    <div class="section-head">
+        <p class="eyebrow">What We Stand For</p>
+        <h2>Three things we don't compromise on</h2>
+    </div>
+
+    <div class="values-grid">
+        <div class="value-card">
+            <svg class="star-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 1 L15 8 L22 9 L17 14 L18.5 21 L12 17.5 L5.5 21 L7 14 L2 9 L9 8 Z" />
+            </svg>
+            <h3>The Fabric</h3>
+            <p>Fine cotton and wool blends sourced for how they drape and breathe, not just how they photograph.</p>
+        </div>
+        <div class="value-card">
+            <svg class="star-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 1 L15 8 L22 9 L17 14 L18.5 21 L12 17.5 L5.5 21 L7 14 L2 9 L9 8 Z" />
+            </svg>
+            <h3>The Fit</h3>
+            <p>Made-to-measure isn't an upsell here — it's how we prefer to work whenever there's time for it.</p>
+        </div>
+        <div class="value-card">
+            <svg class="star-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 1 L15 8 L22 9 L17 14 L18.5 21 L12 17.5 L5.5 21 L7 14 L2 9 L9 8 Z" />
+            </svg>
+            <h3>The Finish</h3>
+            <p>Hand-finished seams and buttonholes on every piece — no shortcuts once the machine work is done.</p>
+        </div>
+    </div>
+</section>
+
+<section class="tailor-strip">
+    <div class="tailor-inner reveal corner-frame">
+        <p class="eyebrow">Visit Us</p>
+        <h2>Come sit for a fitting.</h2>
+        <p>No appointment required for ready-to-wear — for a made-to-measure piece, book a tailor and we'll take it from there.</p>
+        <a class="btn-gold" asp-controller="Booking" asp-action="Create">Book a Tailor</a>
+    </div>
+</section>

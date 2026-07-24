@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutUs" xml:space="preserve">
+    <value>من نحن</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>الإجراء</value>
+  </data>
+  <data name="AdditionalNotes" xml:space="preserve">
+    <value>ملاحظات إضافية</value>
+  </data>
+  <data name="AdminDashboard" xml:space="preserve">
+    <value>لوحة تحكم الإدارة</value>
+  </data>
+  <data name="AdminNotes" xml:space="preserve">
+    <value>ملاحظات الإدارة</value>
+  </data>
+  <data name="AllStatuses" xml:space="preserve">
+    <value>جميع الحالات</value>
+  </data>
+  <data name="Appointment" xml:space="preserve">
+    <value>الموعد</value>
+  </data>
+  <data name="AppointmentInformation" xml:space="preserve">
+    <value>معلومات الموعد</value>
+  </data>
+  <data name="AppointmentPreference" xml:space="preserve">
+    <value>الموعد المفضل</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>العربية</value>
+  </data>
+  <data name="BackToBookings" xml:space="preserve">
+    <value>العودة إلى الحجوزات</value>
+  </data>
+  <data name="BookAnotherAppointment" xml:space="preserve">
+    <value>حجز موعد آخر</value>
+  </data>
+  <data name="BookAppointment" xml:space="preserve">
+    <value>احجز الموعد</value>
+  </data>
+  <data name="BookATailor" xml:space="preserve">
+    <value>احجز خياطاً</value>
+  </data>
+  <data name="BookATailorHeading" xml:space="preserve">
+    <value>احجز موعداً مع خياط</value>
+  </data>
+  <data name="BookingDetails" xml:space="preserve">
+    <value>تفاصيل الحجز</value>
+  </data>
+  <data name="BookingFailed" xml:space="preserve">
+    <value>تعذر إرسال طلب الموعد. يرجى المحاولة مرة أخرى.</value>
+  </data>
+  <data name="BookingIntroduction" xml:space="preserve">
+    <value>أكمل النموذج أدناه لطلب موعد مع خياط. لا يلزم التسجيل.</value>
+  </data>
+  <data name="BookingReference" xml:space="preserve">
+    <value>رقم مرجع الحجز</value>
+  </data>
+  <data name="Bookings" xml:space="preserve">
+    <value>الحجوزات</value>
+  </data>
+  <data name="BookingSubmitted" xml:space="preserve">
+    <value>تم إرسال طلب الموعد</value>
+  </data>
+  <data name="BookingSubmittedSuccessfully" xml:space="preserve">
+    <value>تم إرسال طلب موعدك بنجاح.</value>
+  </data>
+  <data name="BookingUpdatedSuccessfully" xml:space="preserve">
+    <value>تم تحديث الحجز بنجاح</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>ملغي</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>قريباً</value>
+  </data>
+  <data name="CompleteAddress" xml:space="preserve">
+    <value>العنوان الكامل</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>مكتمل</value>
+  </data>
+  <data name="Confirmed" xml:space="preserve">
+    <value>مؤكد</value>
+  </data>
+  <data name="ContactOnWhatsApp" xml:space="preserve">
+    <value>التواصل عبر واتساب</value>
+  </data>
+  <data name="ContactYouSoon" xml:space="preserve">
+    <value>سنتواصل معك قريباً لتأكيد الموعد.</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>الدولة</value>
+  </data>
+  <data name="CurrentStatus" xml:space="preserve">
+    <value>الحالة الحالية</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>العميل</value>
+  </data>
+  <data name="CustomerInformation" xml:space="preserve">
+    <value>معلومات العميل</value>
+  </data>
+  <data name="CustomerNotes" xml:space="preserve">
+    <value>ملاحظات العميل</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>لوحة التحكم</value>
+  </data>
+  <data name="DubaiArea" xml:space="preserve">
+    <value>منطقة دبي</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="EnterAdditionalInformation" xml:space="preserve">
+    <value>أدخل أي معلومات إضافية للموعد.</value>
+  </data>
+  <data name="EnterCompleteAddress" xml:space="preserve">
+    <value>المبنى والشارع ورقم الشقة</value>
+  </data>
+  <data name="EnterEmailAddress" xml:space="preserve">
+    <value>أدخل بريدك الإلكتروني</value>
+  </data>
+  <data name="EnterFullName" xml:space="preserve">
+    <value>أدخل اسمك الكامل</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>يرجى إدخال بريد إلكتروني صحيح.</value>
+  </data>
+  <data name="InvalidWhatsApp" xml:space="preserve">
+    <value>يرجى إدخال رقم واتساب صحيح.</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+  </data>
+  <data name="ManageBookings" xml:space="preserve">
+    <value>إدارة الحجوزات</value>
+  </data>
+  <data name="NoBookingsFound" xml:space="preserve">
+    <value>لم يتم العثور على حجوزات</value>
+  </data>
+  <data name="NoMatchingBookings" xml:space="preserve">
+    <value>لا توجد حجوزات مطابقة لبحثك.</value>
+  </data>
+  <data name="NoRegistrationRequired" xml:space="preserve">
+    <value>لا تحتاج إلى التسجيل أو تسجيل الدخول لحجز موعد.</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>اختياري</value>
+  </data>
+  <data name="PastDateNotAllowed" xml:space="preserve">
+    <value>لا يمكن أن يكون تاريخ الموعد في الماضي.</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>قيد الانتظار</value>
+  </data>
+  <data name="PersonalInformation" xml:space="preserve">
+    <value>المعلومات الشخصية</value>
+  </data>
+  <data name="PreferredDate" xml:space="preserve">
+    <value>التاريخ المفضل</value>
+  </data>
+  <data name="PreferredTime" xml:space="preserve">
+    <value>الوقت المفضل</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>إنشاء حساب</value>
+  </data>
+  <data name="RequiredAddress" xml:space="preserve">
+    <value>يرجى إدخال عنوانك الكامل.</value>
+  </data>
+  <data name="RequiredArea" xml:space="preserve">
+    <value>يرجى اختيار منطقة في دبي.</value>
+  </data>
+  <data name="RequiredDate" xml:space="preserve">
+    <value>يرجى اختيار التاريخ المفضل للموعد.</value>
+  </data>
+  <data name="RequiredEmail" xml:space="preserve">
+    <value>يرجى إدخال بريدك الإلكتروني.</value>
+  </data>
+  <data name="RequiredFullName" xml:space="preserve">
+    <value>يرجى إدخال اسمك الكامل.</value>
+  </data>
+  <data name="RequiredTime" xml:space="preserve">
+    <value>يرجى اختيار الوقت المفضل للموعد.</value>
+  </data>
+  <data name="RequiredWhatsApp" xml:space="preserve">
+    <value>يرجى إدخال رقم واتساب.</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>إعادة تعيين</value>
+  </data>
+  <data name="ReturnHome" xml:space="preserve">
+    <value>العودة إلى الرئيسية</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>حفظ التغييرات</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="SearchBookings" xml:space="preserve">
+    <value>البحث في الحجوزات</value>
+  </data>
+  <data name="SelectYourArea" xml:space="preserve">
+    <value>اختر منطقتك</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>تاريخ الإرسال</value>
+  </data>
+  <data name="UnitedArabEmirates" xml:space="preserve">
+    <value>الإمارات العربية المتحدة</value>
+  </data>
+  <data name="UpdateBooking" xml:space="preserve">
+    <value>تحديث الحجز</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>عرض</value>
+  </data>
+  <data name="WhatsAppNumber" xml:space="preserve">
+    <value>رقم واتساب</value>
+  </data>
+</root>

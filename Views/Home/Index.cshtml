@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <div class="hero-glass corner-frame">
+        <p class="eyebrow">Bait Al Libas &nbsp;·&nbsp; L.L.C</p>
+        <h1>Kandooras &amp; Thobes,<br /><span class="gold-text">tailored to your standing.</span></h1>
+        <p>Ready-to-wear and made-to-measure kandooras cut from fine cotton and wool blends — finished by hand, fitted to you.</p>
+        <div class="hero-ctas">
+            <a class="btn-gold" asp-controller="Booking" asp-action="Create">Book a Tailor</a>
+            <a class="btn-glass" href="#collection">View Collection</a>
+        </div>
+    </div>
+</section>
+
+<svg class="arch-divider" viewBox="0 0 1200 64" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,64 C 300,0 900,0 1200,64" />
+</svg>
+
+<!-- ================= COLLECTIONS ================= -->
+<section class="section reveal">
+    <div class="section-head">
+        <svg class="star-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 1 L15 8 L22 9 L17 14 L18.5 21 L12 17.5 L5.5 21 L7 14 L2 9 L9 8 Z" />
+        </svg>
+        <p class="eyebrow">The Collection</p>
+        <h2>Ready to Wear</h2>
+        <p>Five regional cuts, each tailored to a different tradition — plus accessories on the way.</p>
+    </div>
+
+    <div class="collection-grid" id="collection">
+        <div class="collection-card">
+            <span class="glass-tag">New</span>
+            <img src="~/images/omani.png" alt="Omani Kandoora" />
+            <div class="label">
+                <p class="eyebrow">Style</p>
+                <h3>Omani Kandoora</h3>
+            </div>
+        </div>
+        <div class="collection-card">
+            <img src="~/images/saudi.jpg" alt="Saudi Thobe" />
+            <div class="label">
+                <p class="eyebrow">Style</p>
+                <h3>Saudi Thobe</h3>
+            </div>
+        </div>
+        <div class="collection-card">
+            <img src="~/images/emirati.jpg" alt="Emirati Kandoora" />
+            <div class="label">
+                <p class="eyebrow">Style</p>
+                <h3>Emirati Kandoora</h3>
+            </div>
+        </div>
+        <div class="collection-card">
+            <img src="~/images/kuwaiti.webp" alt="Kuwaiti Kandoora" />
+            <div class="label">
+                <p class="eyebrow">Style</p>
+                <h3>Kuwaiti Kandoora</h3>
+            </div>
+        </div>
+        <div class="collection-card">
+            <img src="~/images/qatari.png" alt="Qatari Kandoora" />
+            <div class="label">
+                <p class="eyebrow">Style</p>
+                <h3>Qatari Kandoora</h3>
+            </div>
+        </div>
+        <div class="collection-card">
+            <img src="~/images/sandal.webp" alt="Sandals" />
+            <div class="coming-soon-overlay">
+                <span class="eyebrow">Coming Soon</span>
+            </div>
+            <div class="label">
+                <p class="eyebrow">Accessories</p>
+                <h3>Sandals</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= BOOK A TAILOR ================= -->
+<section class="tailor-strip">
+    <div class="tailor-inner reveal corner-frame">
+        <svg class="star-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 1 L15 8 L22 9 L17 14 L18.5 21 L12 17.5 L5.5 21 L7 14 L2 9 L9 8 Z" />
+        </svg>
+        <p class="eyebrow">Made to Measure</p>
+        <h2>Bring your own measurements — we cut it exact.</h2>
+        <p>Book a fitting with our in-house tailor. Choose fabric, collar, and cuff, and we'll have it ready within the week.</p>
+        <a class="btn-gold" asp-controller="Booking" asp-action="Create">Book a Tailor</a>
+    </div>
+</section>

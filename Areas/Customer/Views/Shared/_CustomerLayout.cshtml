@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Customer Dashboard</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+</head>
+
+<body class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg
+            navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand"
+                   asp-area="Customer"
+                   asp-controller="Dashboard"
+                   asp-action="Index">
+                    Tailor Booking
+                </a>
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#customerNavigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="customerNavigation"
+                     class="collapse navbar-collapse">
+
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-area="Customer"
+                               asp-controller="Dashboard"
+                               asp-action="Index">
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link disabled"
+                               href="#">
+                                Book a Tailor
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link disabled"
+                               href="#">
+                                My Bookings
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="text-white">
+                            @User.Identity?.Name
+                        </span>
+
+                        <form asp-area="Identity"
+                              asp-page="/Account/Logout"
+                              method="post">
+                            <button type="submit"
+                                    class="btn btn-outline-light btn-sm">
+                                Logout
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-4">
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

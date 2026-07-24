@@ -1,0 +1,619 @@
+﻿/* ============================================================
+   BAIT AL LIBAS — ADMIN CONSOLE
+   Reuses brand tokens from site.css (:root variables).
+   Dense, functional, low-motion — dark ink sidebar + ivory workspace.
+   ============================================================ */
+
+.admin-body {
+    margin: 0;
+    background: var(--ivory-deep);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-weight: 300;
+}
+
+.admin-shell {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+.admin-sidebar {
+    background: var(--ink);
+    color: var(--ivory);
+    display: flex;
+    flex-direction: column;
+    padding: 28px 20px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid rgba(201,162,75,0.25);
+}
+
+.admin-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 6px;
+}
+
+.admin-brand-chip {
+    background: var(--ivory);
+    border-radius: 10px;
+    padding: 10px 18px;
+    margin-bottom: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+    .admin-brand-chip .admin-brand-logo {
+        height: 70px;
+        width: auto;
+        max-width: 170px;
+        object-fit: contain;
+        display: block;
+    }
+
+.admin-brand-sub {
+    font-family: var(--font-caps);
+    font-variant: small-caps;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    text-align: center;
+    margin: 0 0 28px;
+}
+
+.admin-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.admin-nav-group {
+    font-family: var(--font-caps);
+    font-variant: small-caps;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    margin: 18px 6px 8px;
+}
+
+    .admin-nav-group:first-child {
+        margin-top: 0;
+    }
+
+.admin-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 12px;
+    border-radius: 8px;
+    color: rgba(251,249,244,0.75);
+    font-family: var(--font-caps);
+    font-variant: small-caps;
+    letter-spacing: 0.08em;
+    font-size: 0.95rem;
+    transition: background 0.2s ease, color 0.2s ease;
+    position: relative;
+}
+
+    .admin-nav-link svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .admin-nav-link:hover {
+        background: rgba(255,255,255,0.06);
+        color: var(--ivory);
+    }
+
+    .admin-nav-link.active {
+        background: linear-gradient(135deg, rgba(240,210,138,0.16), rgba(201,162,75,0.1));
+        color: var(--gold-bright);
+        box-shadow: inset 0 0 0 1px rgba(201,162,75,0.35);
+    }
+
+    .admin-nav-link.is-disabled {
+        color: rgba(251,249,244,0.32);
+        cursor: default;
+        pointer-events: none;
+    }
+
+.admin-badge-soon {
+    margin-left: auto;
+    font-family: var(--font-caps);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-bright);
+    background: rgba(201,162,75,0.15);
+    border: 1px solid rgba(201,162,75,0.35);
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.admin-sidebar-foot {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 16px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.admin-user-name {
+    font-family: var(--font-caps);
+    font-size: 0.85rem;
+    color: rgba(251,249,244,0.8);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.admin-logout-btn {
+    font-family: var(--font-caps);
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+    font-size: 0.82rem;
+    color: var(--ivory);
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 6px;
+    padding: 7px 14px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+    .admin-logout-btn:hover {
+        border-color: var(--gold-bright);
+        color: var(--gold-bright);
+    }
+
+/* ============================================================
+   TOPBAR
+   ============================================================ */
+.admin-main {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.admin-topbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 72px;
+    padding: 0 clamp(18px, 3vw, 36px);
+    background: var(--glass-fill-strong);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.admin-page-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin: 0;
+    flex: 1;
+}
+
+.admin-sidebar-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 34px;
+    height: 34px;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+    .admin-sidebar-toggle span {
+        display: block;
+        height: 1.5px;
+        width: 16px;
+        margin: 0 auto;
+        background: var(--ink-soft);
+    }
+
+.admin-view-site {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-caps);
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    color: var(--gold-deep);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 8px 14px;
+    white-space: nowrap;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+    .admin-view-site svg {
+        width: 14px;
+        height: 14px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+    }
+
+    .admin-view-site:hover {
+        border-color: var(--gold);
+        background: rgba(255,255,255,0.4);
+    }
+
+/* ============================================================
+   CONTENT AREA
+   ============================================================ */
+.admin-content {
+    flex: 1;
+    padding: clamp(18px, 3vw, 36px);
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Reusable glass surface for admin cards/tables — apply alongside Bootstrap layout */
+.admin-panel {
+    background: var(--glass-fill-strong);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: clamp(18px, 2.4vw, 28px);
+    box-shadow: var(--glass-shadow);
+    margin-bottom: 24px;
+}
+
+.admin-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+    .admin-panel-head h2 {
+        font-size: 1.15rem;
+        font-family: var(--font-display);
+    }
+
+.admin-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.admin-stat-card {
+    background: var(--glass-fill-strong);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    box-shadow: var(--glass-shadow);
+}
+
+    .admin-stat-card .label {
+        font-family: var(--font-caps);
+        font-variant: small-caps;
+        letter-spacing: 0.14em;
+        font-size: 0.78rem;
+        color: var(--ink-faint);
+    }
+
+    .admin-stat-card .value {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-top: 6px;
+    }
+
+/* tables inside admin panels */
+.admin-panel .table {
+    margin-bottom: 0;
+    color: var(--ink);
+}
+
+    .admin-panel .table thead th {
+        font-family: var(--font-caps);
+        font-variant: small-caps;
+        letter-spacing: 0.1em;
+        font-size: 0.82rem;
+        color: var(--ink-faint);
+        border-bottom: 1px solid var(--glass-border);
+        font-weight: 500;
+    }
+
+    .admin-panel .table td, .admin-panel .table th {
+        border-color: var(--glass-border);
+        vertical-align: middle;
+    }
+
+.admin-badge {
+    font-family: var(--font-caps);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.admin-badge-gold {
+    background: rgba(201,162,75,0.15);
+    color: var(--gold-deep);
+    border: 1px solid rgba(201,162,75,0.35);
+}
+
+.admin-badge-neutral {
+    background: rgba(19,17,16,0.06);
+    color: var(--ink-soft);
+    border: 1px solid rgba(19,17,16,0.12);
+}
+
+/* ============================================================
+   DETAIL PAGE — booking details, and similar record views
+   ============================================================ */
+.admin-back-link {
+    font-family: var(--font-caps);
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+    font-size: 0.88rem;
+    color: var(--gold-deep);
+    transition: color 0.2s ease;
+}
+
+    .admin-back-link:hover {
+        color: var(--ink);
+    }
+
+.admin-detail-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.7rem;
+    color: var(--ink);
+    margin: 10px 0 4px;
+}
+
+.admin-detail-ref {
+    font-family: var(--font-caps);
+    font-size: 0.9rem;
+    color: var(--ink-faint);
+    margin: 0;
+}
+
+    .admin-detail-ref span {
+        color: var(--ink-soft);
+        font-weight: 500;
+    }
+
+.admin-whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-caps);
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    color: #FBF9F4;
+    background: linear-gradient(135deg, #35C15E, #1F9E4C);
+    border: 1px solid #16813C;
+    padding: 11px 22px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .admin-whatsapp-btn svg {
+        width: 17px;
+        height: 17px;
+        fill: currentColor;
+    }
+
+    .admin-whatsapp-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 22px rgba(31,158,76,0.35);
+        color: #FBF9F4;
+    }
+
+.admin-panel--sticky {
+    position: sticky;
+    top: 92px;
+}
+
+.admin-field-label {
+    font-family: var(--font-caps);
+    font-variant: small-caps;
+    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    margin-bottom: 4px;
+}
+
+.admin-field-value {
+    font-family: var(--font-body);
+    font-size: 0.98rem;
+    color: var(--ink);
+}
+
+.admin-field-value--strong {
+    font-weight: 500;
+}
+
+.admin-inline-link {
+    color: var(--gold-deep);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,162,75,0.4);
+}
+
+    .admin-inline-link:hover {
+        color: var(--ink);
+        border-color: var(--ink-soft);
+    }
+
+.admin-notes-box {
+    background: rgba(255,255,255,0.5);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 4px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.admin-form-label {
+    display: block;
+    font-family: var(--font-caps);
+    font-variant: small-caps;
+    letter-spacing: 0.08em;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+}
+
+.admin-form-control {
+    background: rgba(255,255,255,0.6);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 10px 13px;
+    font-family: var(--font-body);
+    color: var(--ink);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+    .admin-form-control:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(201,162,75,0.22);
+        background: rgba(255,255,255,0.85);
+        outline: none;
+    }
+
+.admin-form-hint {
+    font-family: var(--font-caps);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    margin-top: 6px;
+}
+
+.admin-field-error {
+    font-size: 0.8rem;
+    color: #8B1A18;
+    display: block;
+    margin-top: 4px;
+}
+
+.admin-save-btn {
+    width: 100%;
+    border: 1px solid var(--gold-deep);
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+    color: var(--ink);
+    font-family: var(--font-caps);
+    font-variant: small-caps;
+    letter-spacing: 0.14em;
+    font-size: 1rem;
+    padding: 13px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .admin-save-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 26px rgba(201,162,75,0.35);
+    }
+
+.admin-alert-success {
+    background: rgba(31,158,76,0.08);
+    border: 1px solid rgba(31,158,76,0.3);
+    color: #1F9E4C;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    padding: 14px 18px;
+}
+
+.admin-alert-danger {
+    background: rgba(139,26,24,0.06);
+    border: 1px solid rgba(139,26,24,0.3);
+    color: #8B1A18;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+}
+
+    .admin-alert-danger:empty {
+        display: none;
+        padding: 0;
+        border: none;
+    }
+
+@media (max-width: 991.98px) {
+    .admin-panel--sticky {
+        position: static;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 991.98px) {
+    .admin-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 260px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 300;
+        box-shadow: var(--glass-shadow);
+    }
+
+        .admin-sidebar.is-open {
+            transform: translateX(0);
+        }
+
+    .admin-sidebar-toggle {
+        display: flex;
+    }
+
+    .admin-page-title {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .admin-view-site span {
+        display: none;
+    }
+}

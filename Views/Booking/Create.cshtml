@@ -1,0 +1,136 @@
+﻿@model TailorBooking.ViewModels.BookingCreateViewModel
+
+@{
+    ViewData["Title"] = "Book a Tailor";
+}
+
+<div class="booking-hero reveal">
+    <svg class="star-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 1 L15 8 L22 9 L17 14 L18.5 21 L12 17.5 L5.5 21 L7 14 L2 9 L9 8 Z" />
+    </svg>
+    <span class="eyebrow">Made to Measure</span>
+    <h1>Book a Tailor</h1>
+    <p>Complete the form below to request a fitting appointment. Registration is not required.</p>
+</div>
+
+<svg class="arch-divider" viewBox="0 0 1200 64" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,64 C 300,0 900,0 1200,64" />
+</svg>
+
+<div class="booking-card reveal corner-frame">
+
+    <form asp-controller="Booking" asp-action="Create" method="post">
+
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+        <h2 class="section-label">Personal Information</h2>
+
+        <div class="row g-3 mb-4">
+
+            <div class="col-md-6">
+                <label asp-for="CustomerName" class="form-label">Full Name</label>
+                <input asp-for="CustomerName" class="form-control" placeholder="Enter your full name" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Email" class="form-label">Email Address</label>
+                <input asp-for="Email" class="form-control" placeholder="Enter your email address" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="WhatsAppNumber" class="form-label">WhatsApp Number</label>
+                <input asp-for="WhatsAppNumber" class="form-control" placeholder="+971 50 123 4567" />
+                <span asp-validation-for="WhatsAppNumber" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Country</label>
+                <input type="text" class="form-control" value="United Arab Emirates" readonly />
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="City" class="form-label">Dubai Area</label>
+                <select asp-for="City" class="form-select">
+                    <option value="">Select your area</option>
+                    <option value="Dubai Marina">Dubai Marina</option>
+                    <option value="Business Bay">Business Bay</option>
+                    <option value="Downtown Dubai">Downtown Dubai</option>
+                    <option value="Jumeirah">Jumeirah</option>
+                    <option value="Jumeirah Beach Residence (JBR)">Jumeirah Beach Residence (JBR)</option>
+                    <option value="Palm Jumeirah">Palm Jumeirah</option>
+                    <option value="Deira">Deira</option>
+                    <option value="Bur Dubai">Bur Dubai</option>
+                    <option value="Al Barsha">Al Barsha</option>
+                    <option value="Al Quoz">Al Quoz</option>
+                    <option value="Al Nahda">Al Nahda</option>
+                    <option value="Al Karama">Al Karama</option>
+                    <option value="Mirdif">Mirdif</option>
+                    <option value="Arabian Ranches">Arabian Ranches</option>
+                    <option value="Dubai Silicon Oasis">Dubai Silicon Oasis</option>
+                    <option value="International City">International City</option>
+                    <option value="Discovery Gardens">Discovery Gardens</option>
+                    <option value="Motor City">Motor City</option>
+                    <option value="Dubai Sports City">Dubai Sports City</option>
+                    <option value="Dubai Investment Park (DIP)">Dubai Investment Park (DIP)</option>
+                    <option value="Al Furjan">Al Furjan</option>
+                    <option value="Dubai Hills Estate">Dubai Hills Estate</option>
+                    <option value="The Springs">The Springs</option>
+                    <option value="The Meadows">The Meadows</option>
+                    <option value="Emirates Hills">Emirates Hills</option>
+                    <option value="Jumeirah Village Circle (JVC)">Jumeirah Village Circle (JVC)</option>
+                    <option value="Jumeirah Village Triangle (JVT)">Jumeirah Village Triangle (JVT)</option>
+                    <option value="Al Satwa">Al Satwa</option>
+                    <option value="Oud Metha">Oud Metha</option>
+                    <option value="Muhaisnah">Muhaisnah</option>
+                </select>
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Address" class="form-label">Complete Address</label>
+                <input asp-for="Address" class="form-control" placeholder="Building, street and apartment number" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+        </div>
+
+        <hr />
+
+        <h2 class="section-label">Appointment Preference</h2>
+
+        <div class="row g-3 mb-4">
+
+            <div class="col-md-6">
+                <label asp-for="PreferredDate" class="form-label">Preferred Date</label>
+                <input asp-for="PreferredDate" class="form-control" min="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                <span asp-validation-for="PreferredDate" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="PreferredTime" class="form-label">Preferred Time</label>
+                <input asp-for="PreferredTime" class="form-control" />
+                <span asp-validation-for="PreferredTime" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="Notes" class="form-label">
+                    Additional Notes <span class="text-muted">(Optional)</span>
+                </label>
+                <textarea asp-for="Notes" class="form-control" rows="4" placeholder="Enter any additional information for the appointment."></textarea>
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+
+        </div>
+
+        <button type="submit" class="booking-submit">Book Appointment</button>
+
+        <p class="booking-note">You do not need to register or log in to book an appointment.</p>
+
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

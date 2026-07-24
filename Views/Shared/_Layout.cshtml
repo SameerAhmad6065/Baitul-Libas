@@ -1,0 +1,104 @@
+﻿@using TailorBooking.Data
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bait Al Libas</title>
+    <script type="importmap"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=EB+Garamond:wght@500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TailorBooking.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+    <!-- Ambient background: floating blurred blobs + faint lattice, sits behind every glass panel -->
+    <div class="bg-scene" aria-hidden="true">
+        <div class="blob blob-gold"></div>
+        <div class="blob blob-ink"></div>
+        <div class="blob blob-gold2"></div>
+        <div class="lattice"></div>
+    </div>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/l.png" alt="Bait Al Libas" class="brand-logo" />
+                </a>
+
+                <div class="navbar-collapse collapse navbar-nav-wrap">
+                    <ul class="navbar-nav nav-links-left">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav nav-links-right">
+                        @if (User.IsInRole(RoleNames.Admin))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin</a>
+                            </li>
+                        }
+                        <li class="nav-item">
+                            <partial name="_LoginPartial" />
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn-gold" asp-area="" asp-controller="Booking" asp-action="Create">Book a Tailor</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="~/images/l.png" alt="Bait Al Libas" class="footer-logo" />
+                <p class="footer-tagline">Kandooras &amp; thobes, tailored to your standing.</p>
+            </div>
+
+            <div class="footer-col">
+                <p class="footer-heading">Contact</p>
+                <a class="footer-link" href="https://wa.me/971542448181">WhatsApp: +971 54 244 8181</a>
+                <a class="footer-link" href="mailto:info@baital-libas.com">info@baital-libas.com</a>
+                <p class="footer-link footer-static">Dubai, United Arab Emirates</p>
+            </div>
+
+            <div class="footer-col">
+                <p class="footer-heading">Legal</p>
+                <a class="footer-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 Bait Al Libas L.L.C.
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

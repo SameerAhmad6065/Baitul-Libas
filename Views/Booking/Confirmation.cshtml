@@ -1,0 +1,104 @@
+﻿@model TailorBooking.Models.Booking
+
+@{
+    ViewData["Title"] = "Booking Submitted";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4 p-lg-5 text-center">
+
+                    <div class="mb-4">
+                        <span class="display-4">
+                            ✓
+                        </span>
+                    </div>
+
+                    <h1 class="h2 mb-3">
+                        Booking Submitted Successfully
+                    </h1>
+
+                    <p class="text-muted">
+                        Thank you, @Model.CustomerName.
+                        Your tailor appointment request has been received.
+                    </p>
+
+                    <div class="bg-light rounded p-4 my-4">
+                        <p class="text-muted mb-1">
+                            Booking Reference
+                        </p>
+
+                        <h2 class="h4 mb-0">
+                            @Model.BookingNumber
+                        </h2>
+                    </div>
+
+                    <div class="text-start border rounded p-4">
+                        <div class="row g-3">
+
+                            <div class="col-sm-6">
+                                <strong>Status</strong>
+                                <div>@Model.Status</div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <strong>Appointment Date</strong>
+                                <div>
+                                    @Model.PreferredDate.ToString("dd MMMM yyyy")
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <strong>Appointment Time</strong>
+                                <div>
+                                    @Model.PreferredTime.ToString("hh:mm tt")
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <strong>WhatsApp Number</strong>
+                                <div>@Model.WhatsAppNumber</div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <strong>Email</strong>
+                                <div>@Model.Email</div>
+                            </div>
+
+                            <div class="col-12">
+                                <strong>Address</strong>
+                                <div>@Model.Address</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning mt-4">
+                        Please save your booking reference.
+                        The administrator may contact you through WhatsApp.
+                    </div>
+
+                    <div class="d-flex flex-column
+                        flex-sm-row gap-2
+                        justify-content-center mt-4">
+
+                        <a asp-controller="Home"
+                           asp-action="Index"
+                           class="btn btn-outline-secondary">
+                            Return Home
+                        </a>
+
+                        <a asp-controller="Booking"
+                           asp-action="Create"
+                           class="btn btn-primary">
+                            Make Another Booking
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

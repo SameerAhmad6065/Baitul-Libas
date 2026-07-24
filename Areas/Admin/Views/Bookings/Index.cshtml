@@ -1,0 +1,353 @@
+﻿@model TailorBooking.Areas.Admin.ViewModels.AdminBookingListViewModel
+@using TailorBooking.Models.Enums
+
+@{
+    ViewData["Title"] = "Manage Bookings";
+}
+
+<div class="d-flex flex-column flex-lg-row
+    justify-content-between align-items-lg-center mb-4">
+
+    <div>
+        <h1 class="h3 mb-1">
+            Booking Management
+        </h1>
+
+        <p class="text-muted mb-0">
+            View and manage customer appointment requests.
+        </p>
+    </div>
+</div>
+
+@if (TempData["SuccessMessage"] is not null)
+{
+    <div class="alert alert-success alert-dismissible fade show"
+         role="alert">
+
+        @TempData["SuccessMessage"]
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert">
+        </button>
+    </div>
+}
+
+<div class="row g-3 mb-4">
+
+    <div class="col-sm-6 col-xl">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <p class="text-muted mb-1">
+                    Total
+                </p>
+
+                <h2 class="h3 mb-0">
+                    @Model.TotalBookings
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xl">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <p class="text-muted mb-1">
+                    Pending
+                </p>
+
+                <h2 class="h3 mb-0">
+                    @Model.PendingBookings
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xl">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <p class="text-muted mb-1">
+                    Confirmed
+                </p>
+
+                <h2 class="h3 mb-0">
+                    @Model.ConfirmedBookings
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xl">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <p class="text-muted mb-1">
+                    Completed
+                </p>
+
+                <h2 class="h3 mb-0">
+                    @Model.CompletedBookings
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xl">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <p class="text-muted mb-1">
+                    Cancelled
+                </p>
+
+                <h2 class="h3 mb-0">
+                    @Model.CancelledBookings
+                </h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="card border-0 shadow-sm mb-4">
+    <div class="card-body">
+
+        <form asp-area="Admin"
+              asp-controller="Bookings"
+              asp-action="Index"
+              method="get">
+
+            <div class="row g-3 align-items-end">
+
+                <div class="col-lg-6">
+                    <label for="searchTerm"
+                           class="form-label">
+                        Search Bookings
+                    </label>
+
+                    <input type="search"
+                           id="searchTerm"
+                           name="searchTerm"
+                           value="@Model.SearchTerm"
+                           class="form-control"
+                           placeholder="Name, reference, email, WhatsApp or area" />
+                </div>
+
+                <div class="col-lg-3">
+                    <label for="status"
+                           class="form-label">
+                        Status
+                    </label>
+
+                    <select id="status"
+                            name="status"
+                            class="form-select">
+
+                        <option value="">
+                            All statuses
+                        </option>
+
+                        @foreach (BookingStatus status
+                                  in Enum.GetValues<BookingStatus>())
+                        {
+                            if (Model.Status == status)
+                            {
+                                <option value="@status"
+                                        selected>
+                                    @status
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="@status">
+                                    @status
+                                </option>
+                            }
+                        }
+
+                    </select>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="d-flex gap-2">
+
+                        <button type="submit"
+                                class="btn btn-primary flex-grow-1">
+                            Search
+                        </button>
+
+                        <a asp-area="Admin"
+                           asp-controller="Bookings"
+                           asp-action="Index"
+                           class="btn btn-outline-secondary">
+                            Reset
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+
+        @if (Model.Bookings.Count == 0)
+        {
+            <div class="text-center p-5">
+                <h2 class="h5">
+                    No bookings found
+                </h2>
+
+                <p class="text-muted mb-0">
+                    There are no bookings matching your search.
+                </p>
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th class="ps-4">
+                                Reference
+                            </th>
+
+                            <th>
+                                Customer
+                            </th>
+
+                            <th>
+                                WhatsApp
+                            </th>
+
+                            <th>
+                                Appointment
+                            </th>
+
+                            <th>
+                                Dubai Area
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Submitted
+                            </th>
+
+                            <th class="text-end pe-4">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var booking in Model.Bookings)
+                        {
+                            <tr>
+                                <td class="ps-4">
+                                    <strong>
+                                        @booking.BookingNumber
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    <div class="fw-semibold">
+                                        @booking.CustomerName
+                                    </div>
+
+                                    <div class="small text-muted">
+                                        @booking.Email
+                                    </div>
+                                </td>
+
+                                <td>
+                                    @booking.WhatsAppNumber
+                                </td>
+
+                                <td>
+                                    <div>
+                                        @booking.PreferredDate.ToString(
+                                            "dd MMM yyyy")
+                                    </div>
+
+                                    <div class="small text-muted">
+                                        @booking.PreferredTime.ToString(
+                                            "hh:mm tt")
+                                    </div>
+                                </td>
+
+                                <td>
+                                    @booking.City
+                                </td>
+
+                                <td>
+                                    @switch (booking.Status)
+                                    {
+                                        case BookingStatus.Pending:
+                                            <span class="badge text-bg-warning">
+                                                Pending
+                                            </span>
+                                            break;
+
+                                        case BookingStatus.Confirmed:
+                                            <span class="badge text-bg-primary">
+                                                Confirmed
+                                            </span>
+                                            break;
+
+                                        case BookingStatus.Completed:
+                                            <span class="badge text-bg-success">
+                                                Completed
+                                            </span>
+                                            break;
+
+                                        case BookingStatus.Cancelled:
+                                            <span class="badge text-bg-secondary">
+                                                Cancelled
+                                            </span>
+                                            break;
+                                    }
+                                </td>
+
+                                <td>
+                                    @booking.CreatedAt
+                                    .ToLocalTime()
+                                    .ToString("dd MMM yyyy")
+                                </td>
+
+                                <td class="text-end pe-4">
+                                    <div class="d-inline-flex gap-2">
+                                        <a asp-area="Admin"
+                                           asp-controller="Bookings"
+                                           asp-action="Details"
+                                           asp-route-id="@booking.Id"
+                                           class="btn btn-sm btn-outline-primary">View</a>
+                                        <form asp-area="Admin"
+                                              asp-controller="Bookings"
+                                              asp-action="Delete"
+                                              asp-route-id="@booking.Id"
+                                              method="post"
+                                              class="d-inline"
+                                              onsubmit="return confirm('Are you sure you want to delete booking @booking.BookingNumber?');">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        }
+
+    </div>
+</div>
